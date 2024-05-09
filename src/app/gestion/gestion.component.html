@@ -34,8 +34,7 @@
                 <div class="mb-3 col-md-6">
                     <label for="categorie" class="form-label">Categorie</label>
                     <input type="text" class="form-control" id="categorie" name="Categorie" formControlName="Categorie" placeholder="Categorie" required>
-                    <span class="valid-feedback">valide!</span>
-                    <span class="invalid-feedback">Invalide!</span>
+                   
                     
                   </div>
                   <div class="mb-3 col-md-6">
@@ -51,20 +50,20 @@
                   </div>
                   <div class="mb-3 col-md-6">
                     <label for="status" class="form-label">Status</label>
-                    <input type="text" class="form-control" id="status" name="Status" formControlName="Status">
+                    <input type="text" class="form-control" id="status" name="Status" formControlName="Status" readonly>
                   </div>
 
                 </div>
                   
                <div class="btns" >
-                <button type="submit" class="btn ml-2 mr-2 btn-primary">Ajouter</button>
-                <button type="reset" class="btn ml-2 mr-2 btn-danger">Annuler</button>
+                <button type="submit" class="btn m-2 " id="ajout">Ajouter</button>
+                <button type="reset" class="btn m-2 " id="annule">Annuler</button>
                </div>
                 
               </form>
         </div>
         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
-          <table class="table">
+          <table class="table table-hover ">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -78,16 +77,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of livres">
+              <tr *ngFor="let item of livres"  [ngClass]="{'table-danger': item.Status === 'emprunté', 'table-success': item.Status === 'disponible'}">
                 <td scope="row">{{item.idLivre}}</td>
                 <td>{{item.Titre}}</td>
                 <td>{{item.Auteur}}</td>
                 <td>{{item.Categorie}}</td>
                 <td>{{item.Quantite}}</td>
-                <td>{{item.Image}}</td>
+                <td><img [src]="item.Image" alt="img" height="100px" width="70px"></td>
                 <td>{{item.Status}}</td>
-                <td><button type="button" (click)="GetLivreById(item.idLivre)" class="btn btn-primary m-1">Editer</button></td>
-                <td><button type="button" (click)="DeleteLivreById(item.idLivre)" class="btn btn-danger m-1">Supprimer</button></td>
+                <td><button type="button" (click)="GetLivreById(item.idLivre)" class="btn  m-1" id="ajout">Editer</button></td>
+                <td><button type="button" (click)="DeleteLivreById(item.idLivre)" class="btn  m-1" id="annule">Supprimer</button></td>
               </tr>
               
             </tbody>

@@ -25,7 +25,7 @@
                     <td>{{item.Nom}}</td>
                     <td>{{item.Prenom}}</td>
                     <td>{{item.Mail}}</td>
-                    <td><a href="mailto:item.Mail" class="btn btn-outline-warning m-1">Notifier</a></td>
+                    <td><a href="mailto:item.Mail" class="btn  m-1" id="ajout">Notifier</a></td>
                   </tr>
                   
                 </tbody>
@@ -54,7 +54,7 @@
                     <td>{{item.Quantite}}</td>
                     <td>{{item.Image}}</td>
                     <td>{{item.Status}}</td>
-                    <td><a class="btn btn-outline-secondary m-1"  (click)="GetLivreById(item.idLivre)">Modifier Status</a></td>
+                    <td><a class="btn  m-1" id="annule" (click)="GetLivreById(item.idLivre)">Modifier Status</a></td>
                   </tr>
                   
                 </tbody>

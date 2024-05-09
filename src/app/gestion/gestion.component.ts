@@ -22,7 +22,7 @@ export class GestionComponent implements OnInit {
       Categorie:new FormControl('',[Validators.required]),
       Quantite:new FormControl('',[Validators.required]),
       Image:new FormControl('',[Validators.required]),
-      Status:new FormControl('',[Validators.required])
+      Status:new FormControl('disponible',[Validators.required])
     })
   }
   
@@ -88,8 +88,8 @@ export class GestionComponent implements OnInit {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#C0CA85",
+      cancelButtonColor: "#82A682",
       confirmButtonText: "Yes, delete it!"
     }).then((result: { isConfirmed: any; }) => {
       if (result.isConfirmed) {

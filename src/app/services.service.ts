@@ -52,5 +52,9 @@ export class ServicesService {
   login(loginData:any):Observable<any>{
     return this.http.post(this.url2,loginData);
   }
+  signUp(signUpData:any):Observable<any>{
+    return this.http.post(this.url2,signUpData);
+
+  }
 
 }

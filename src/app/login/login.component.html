@@ -1,13 +1,22 @@
+
 <div class="parent">
+    <div class="logo">
+        <img src="../../assets/Group 6.png" alt="logo" height="500px" width="500px">
+    
+    </div>
+    
     <div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
         <div class="signup">
-            <form>
+            <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
                 <label for="chk" aria-hidden="true">Sign up</label>
-                <input type="text" name="txt" placeholder="User name" required="">
-                <input type="email" name="email" placeholder="Email" required="">
-                <input type="password" name="pswd" placeholder="Password" required="">
-                <button>Sign up</button>
+                <input type="text" name="Nom"  formControlName="Nom" placeholder="Nom" required="">
+                <input type="text" name="Prenom" formControlName="Prenom"  placeholder="Prénom" required="">
+                <input type="email" name="Mail" formControlName="Mail"  placeholder="Email" required="">
+                <input type="email" name="Login" formControlName="Login"  placeholder="Login" required="">
+                <input type="password" name="Pass"  formControlName="Pass"  placeholder="Password" required="">
+                <input type="text" name="Role"  formControlName="Role"  Value="User" readonly hidden>
+                <button type="submit">Sign up</button>
             </form>
         </div>
         
@@ -15,9 +24,17 @@
             <form  [formGroup]="loginForm" (ngSubmit)="login()">
                 <label for="chk" aria-hidden="true">Login</label>
                 <input type="email"  class="form-control" formControlName="Login" name="Login" placeholder="Login" required="">
+                <div *ngIf="loginForm.controls.Login.invalid && loginForm.controls.Login.touched && loginForm.controls.Login.errors" class="text-danger text-center">
+                    <div *ngIf="loginForm.controls.Login.errors['required']" >Login is Required!</div>
+                    <div *ngIf="loginForm.controls.Login.errors['email']">Login invalide!</div>
+                </div>
                 <input type="password" class="form-control" formControlName="Pass" name="Pass" placeholder="Password" required="">
-                <button type="submit" >Login</button>
+                <div *ngIf="loginForm.controls.Pass.invalid && loginForm.controls.Pass.touched" class="text-danger text-center">Password is Required!</div>
+                <button type="submit" [disabled]="!loginForm.valid" >Login</button>
             </form>
+        </div>
+        <div *ngIf="error!==''" class="text-danger">
+              {{error}}
         </div>
     </div>
     

@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 declare var Swal: any;
 @Component({
-  selector: 'app-nav',
+  selector: 'app-nav-user',
   standalone: true,
-  imports: [RouterOutlet,RouterModule,],
-  templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css'
+  imports: [RouterOutlet,RouterModule],
+  templateUrl: './nav-user.component.html',
+  styleUrl: './nav-user.component.css'
 })
-export class NavComponent {
+export class NavUserComponent {
   loggedUser:any;
   constructor( private route:Router){
     const localUser=localStorage.getItem('LoggedUser');

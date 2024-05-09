@@ -42,7 +42,7 @@ export class SuivieComponent {
         console.log("livre:", data);
         const livre = data; // Récupérer le livre
         // Inverser le statut
-        livre.Status = livre.Status === 'disponible' ? 'Emprunté' : 'disponible';
+        livre.Status = livre.Status === 'disponible' ? 'emprunté' : 'disponible';
         // Mettre à jour le livre dans la base de données
         this.serv.UpdateLivre(livre).subscribe({
           next: () => {
